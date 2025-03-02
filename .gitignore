@@ -1,0 +1,7 @@
+#stuff that doesnt need to be tracked in git...
+
+# Python
+backend/venv/
+__pycache__/
+
+
