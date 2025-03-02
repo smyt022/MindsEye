@@ -28,3 +28,6 @@ Ideas for UI:
 ## security ##
 - make sure to sanatize all api endpoint inputs before releasing
 - look around for other vulnerabilities
+after cloning this repo
+run:
+pip install -r requirements.txt
