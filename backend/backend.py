@@ -19,8 +19,15 @@ def get_AI_Response(prompt):
     client = genai.Client(api_key=get_Gemini_key())
     
     response = client.models.generate_content(
-        model="gemini-2.0-flash", contents="For context, word that is being guessed is:"+word+" ... Answer only True or False to the following question/statement, do NOT say anything else {"+prompt+"}"
+        model="gemini-2.0-flash", contents="For context, word that is being guessed is:"+get_word()+" ... Answer only True or False to the following question/statement, do NOT say anything else {"+prompt+"}"
     )
+    
+    #just keep the actual text response,
+    #dont need other metadata
+    response = str(response.candidates[0].content.parts[0].text)
+    
+    print("ai_response: "+response)
+    
     return response
 
 #returns word of the day

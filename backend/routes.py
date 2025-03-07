@@ -1,10 +1,16 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS #(Cross-origin resource sharing)
 import backend
 
 #name is set to __main__ if script is ran directly
 #if imported as a module, __name__ is set to 'routes' (name of the file)
 app = Flask(__name__)
 
+#enable CORS for all routes (allow anyone to access endpoints)
+CORS(app) 
+
+#if you only want React front-end to access backend apis:
+#CORS(app, origins=["http://localhost:5173"])
 
 @app.route('/')
 def home():
@@ -19,16 +25,18 @@ def ai_response():
     if not prompt:
         return (jsonify({"error":"Missing required prompt parameter"}), 400)
     
-    response = backend.get_AI_Response(prompt);
+    response = backend.get_AI_Response(prompt)
     
-    return (jsonify({"response":response}), 400)
+    return (jsonify({"response":response}), 200)
 
 
 #word of the day endpoint
 @app.route('/word_of_the_day', methods=['GET'])
 def word_of_the_day():
     word = backend.get_word()
-    return (jsonify({"word":word}),400)
+    return (jsonify({"word":word}),200)
+
+
 
 if __name__ == '__main__':
     #runs on http://127.0.0.1:5000 by default
