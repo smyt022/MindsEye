@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "./App.css"
 
 function App() {
   const [question, setQuestion] = useState("");
@@ -45,7 +46,7 @@ function App() {
   if (loading) return <h2>Loading word...</h2>
 
   return (
-    <div>
+    <div className="pageContainer">
       <h1>Mind's Eye</h1>
       <p>word has {correctWord.length} letters</p>
 
@@ -87,7 +88,11 @@ function App() {
       {/* show if they guessed correct*/}
       {gameOver && (
         <h2>
-          {guess.toUpperCase() === correctWord ? "Correct!":"Incorrect"}
+          {guess.toUpperCase() === correctWord ? (
+            <h3 className="correct">CORRECT</h3>
+          ) : (
+            <h3 className="incorrect">INCORRECT</h3>
+          )}
         </h2>
       )}
       {gameOver && guess.toUpperCase() !== correctWord && <p>The word was: {correctWord}</p>}
