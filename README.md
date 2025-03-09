@@ -1,5 +1,5 @@
 ### PROJECT ###
-Mind's Eye is a game where the player has 10 attemps to guess the hidden word.
+Mind's Eye is a game where the player has 5 attemps to guess the hidden word.
 Before each guess, the play can ask one True or False question to narrow down the possibilities.
 
 End Goal: accumulate a large player base, similar to wordle
@@ -28,6 +28,7 @@ Ideas for UI:
 
 - dependencies:
     -   run "npm install axios"
+    -   run "npm install 
 
 ## Backend Development & Testing guide ##
 
