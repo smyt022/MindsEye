@@ -1,5 +1,5 @@
 from google import genai
-
+import datetime
 
 def get_Gemini_key():
     #we should hide this using github secrets
@@ -32,8 +32,20 @@ def get_AI_Response(prompt):
 
 #returns word of the day
 def get_word():
-    return "lion"
-#the number of guesses tracker will be kept in cookies
+    
+    #get current day, modulus, index workbank
+    current_day = datetime.datetime.now().day
+    
+    #word bank
+    wordBank = ['APPLE', 'BALL', 'CAR', 'DOG',
+                'ELEPHANT','FLOWER','GARDEN','HOUSE','ISLAND',
+                'JACKET','KEY','LAMP','MOUNTAIN','NOTEBOOK',
+                'ORANGE','PENCIL','QUEEN','RIVER','SCHOOL','TABLE',
+                'UMBRELLA','TIGER','WINDOW','CHAIR','TREE']
+    
+    word = wordBank[current_day%len(wordBank)]
+    
+    return str(word)
 
 
 

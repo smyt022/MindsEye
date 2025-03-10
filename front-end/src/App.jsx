@@ -68,7 +68,7 @@ function App() {
   return (
     <div className="pageContainer">
       <h1>Mind's Eye</h1>
-      <p>word has {correctWord.length} letters</p>
+      <p>guess the {correctWord.length}-letter noun</p>
       <p>you can ask {NUM_OF_QUESTIONS} True/False qustions</p>
 
       <ul>
